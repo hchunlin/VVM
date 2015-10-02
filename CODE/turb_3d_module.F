@@ -877,18 +877,7 @@ CONTAINS
       lwD(I,J) = lwDown_3D(I,J,hxp)
 
   105 CONTINUE
-!----hchun test----
       call land_interface(T2,QG,swD,lwD,sprec(1:mi1,1:mj1),WT,WQ,VEN2D,SPEEDTP)
-      DO J = 1,MJ1
-        DO I = 1,MI1
-          if(INT(hx(I,J)).eq.1) then
-            WT(I,J)=0.
-            WQ(I,J)=0.
-            VEN2D=0.
-          endif
-        ENDDO
-      ENDDO
-!------------------
 
 #else
 !==========================================================
