@@ -35,15 +35,21 @@
           iyear         ! current year
 
       LOGICAL :: &
-          ocean = .TRUE., &             ! true = surface is water
+!---------hchun---------
+          ocean = .FALSE., &             ! true = surface is water
+!-----------------------
           dostatisrad = .FALSE., &      ! true = permits the gathering of statistics
           doshortwave = .TRUE., &       ! true = do shortwave calculation
           dolongwave = .TRUE., &        ! true = do longwave calculation
-          doseasons = .FALSE., &        ! true = seasonal cycle in solar radiation
+!---------hchun---------
+          doseasons = .TRUE., &        ! true = seasonal cycle in solar radiation
+!-----------------------
           doperpetual = .FALSE., &      ! true = perpetual sun
           dosolarconstant = .FALSE., &  ! true = fix solar constant and zenith angle
           restart_sep = .FALSE., &      ! true = write separate restart files for subdomains
-          initialized = .FALSE., &      ! true = radiation has been initialized
+!---------hchun---------
+          initialized = .TRUE., &      ! true = radiation has been initialized
+!-----------------------
           masterproc = .TRUE.           ! true = MPI rank equals 0
 
       REAL (KIND=kind_rm), PARAMETER :: &

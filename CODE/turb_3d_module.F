@@ -241,10 +241,12 @@ CONTAINS
       DO 248 J=1,MJ1
       DO 248 I=1,MI1
 
-!      hxp =INT( hx(I,J))+1
-!      ztmp = ZT(hxp-1)
-      hxp = 2
-      ztmp = 0.
+!-----hchun-----
+      hxp =INT( hx(I,J))+1
+      ztmp = ZT(hxp-1)
+!      hxp = 2
+!      ztmp = 0.
+!---------------
       DO 248 K=hxp,NK2
       DDX(I,J,K)= RAMD0S*(VK*VK*(ZT(K)-ztmp+ZROUGH(I,J))**2)   &
                  /(RAMD0S+(VK*VK*(ZT(K)-ztmp+ZROUGH(I,J))**2))
@@ -854,12 +856,12 @@ CONTAINS
       SPEEDTP(I,J)=0.5*SQRT((U3DX(I-1,J,hxp)+U3DX(I,J,hxp))**2  &
                            +(U3DY(I,J-1,hxp)+U3DY(I,J,hxp))**2)
 !      if(hx1 .ge. 2) then
-!      tg(i,j)=thbar(hx1)*pibar(hx1)   !specify the ground temp. at the corresponding level
-!      gwet(i,j)=0.8
+      tg(i,j)=thbar(hx1)*pibar(hx1)   !specify the ground temp. at the corresponding level
+      gwet(i,j)=0.8
 !      endif
 
 !ccwu for sst gradient test
-      tg(i,j)=297.-8.*cos(2*pi*tempim/6144.)   !6144 points in x direction
+!      tg(i,j)=297.-8.*cos(2*pi*tempim/6144.)   !6144 points in x direction
   100 CONTINUE
 
 #if defined (LSM)
@@ -868,14 +870,25 @@ CONTAINS
       DO 105 I = 1,MI1
 
       hxp=INT(hx(I,J))+1
+      print*,"hxp = ",hxp
       T2(I,J) = TH3D(I,J,hxp)*PIBAR(hxp)
       QG(I,J) = QV3D(I,J,hxp)/(1+QV3D(I,J,hxp))
       swD(I,J) = swDown_3D(I,J,hxp)
       lwD(I,J) = lwDown_3D(I,J,hxp)
 
   105 CONTINUE
-
+!----hchun test----
       call land_interface(T2,QG,swD,lwD,sprec(1:mi1,1:mj1),WT,WQ,VEN2D,SPEEDTP)
+      DO J = 1,MJ1
+        DO I = 1,MI1
+          if(INT(hx(I,J)).eq.1) then
+            WT(I,J)=0.
+            WQ(I,J)=0.
+            VEN2D=0.
+          endif
+        ENDDO
+      ENDDO
+!------------------
 
 #else
 !==========================================================
