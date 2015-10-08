@@ -870,7 +870,7 @@ CONTAINS
       DO 105 I = 1,MI1
 
       hxp=INT(hx(I,J))+1
-      print*,"hxp = ",hxp
+!      print*,"hxp = ",hxp
       T2(I,J) = TH3D(I,J,hxp)*PIBAR(hxp)
       QG(I,J) = QV3D(I,J,hxp)/(1+QV3D(I,J,hxp))
       swD(I,J) = swDown_3D(I,J,hxp)

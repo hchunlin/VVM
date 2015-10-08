@@ -90,6 +90,7 @@ CONTAINS
       SPRECi = real(SPREC)
       SFCSPDi =real(SFCSPD)
 
+
       CALL LSM_DRV(SFCSPDi,T2i,Q2i,swDi,lwDi,SPRECi,WQi,WTi, &
 ! LSM inout variables
            lCM,lST,lSM,lSL,lEMISSI,lCMC,lT1,lSNOWH,lSNEQV,&
@@ -134,7 +135,8 @@ CONTAINS
    CHARACTER(50):: FILENAME
 
 ! surface pressure
-      IF (.false.) then
+!---hchun
+      IF (.true.) then
       WRITE(FILENAME,'(A12,I3.3,A1,I3.3,A4)') &
       'RUNDATA/LULU',ni_sbdm+1,'_',nj_sbdm+1,'.dat'
 
@@ -142,6 +144,8 @@ CONTAINS
       
       OPEN(99,FILE=FILENAME,FORM='unformatted',STATUS='OLD')
       READ(99) ((LU(I,J),I=1,MI1),J=1,MJ1)
+      print*,"landuse"
+      print*,((LU(I,J),I=1,MI1),J=1,MJ1)
       CLOSE(99)
 
       WRITE(FILENAME,'(A12,I3.3,A1,I3.3,A4)') &

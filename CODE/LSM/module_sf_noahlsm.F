@@ -1363,6 +1363,9 @@ CONTAINS
 ! IN KOREN ET AL., JGR, 1999, EQN 17
 ! APPLY PHYSICAL BOUNDS TO FLERCHINGER SOLUTION
 ! ----------------------------------------------------------------------
+!----hchun
+         print*,"KCOUNT = ",KCOUNT
+         print*,"TKELV = ",TKELV
          IF (KCOUNT == 0) THEN
              PRINT *,'Flerchinger USEd in NEW version. Iterations=',NLOG
                   FK = ( ( (HLICE / (GS * ( - PSIS)))*                    &

@@ -529,6 +529,7 @@ DO I=1,MI1
 !     if ( ICE == 0 ) THEN
      if (.true.) then
 
+
         call sflx(ILOC, JLOC, FFROZP, ISURBAN(I,J), DT, ZLVL(I,J),     &
              NSOIL(I,J), SLDPTH, LOCAL, LLANDUSE, LSOIL, LWDN,         &
              SOLDN(I,J), SOLNET, SFCPRS(I,J), PRCP(I,J), SFCTMP(I,J),  &
@@ -685,6 +686,10 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
   DO J=1,MJ1
   DO I=1,MI1
   
+  STinout_ini = ST(I,J,:)
+  SMinout_ini = SM(I,J,:)
+  SLinout_ini = SL(I,J,:)
+
   call open_forcing_file(iunit, output_dir, forcing_filename, nsoil(I,J), startdate, enddate,          &
        loop_for_a_while, latitude, longitude, &
        forcing_timestep, noahlsm_timestep, ice, t11, stc1, smc1, sh2o1, sldpth, cmc(I,J), &
@@ -695,16 +700,16 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
        iz0tlnd, sfcdif_option,STinout_ini,SMinout_ini,SLinout_ini)
 
 
-!  ST(I,J,:) = STinout_int
-!  SM(I,J,:) = SMinout_int
-!  SL(I,J,:) = SLinout_int
+  ST(I,J,:) = STinout_ini
+  SM(I,J,:) = SMinout_ini
+  SL(I,J,:) = SLinout_ini
 
   ENDDO
   ENDDO
 
 !  dt = real(noahlsm_timestep)
   nsoil = 4
-  shdfac                    = shdfac
+  shdfac                    = shdfac/100.0
   shdmax                    = shdmax1/100.0
   shdmin                    = shdmin1/100.0
   zlvl                      = zz1
