@@ -127,7 +127,8 @@ CONTAINS
 
 ! input the following varibles to lsm routine
    integer (kind=int_kind), dimension(mi1,mj1):: LU,SOIL,SLOPE
-   real (kind=int_kind), dimension(mi1,mj1):: & 
+!   real (kind=int_kind), dimension(mi1,mj1):: & 
+   real  (KIND=dbl_kind), dimension(mi1,mj1):: & 
       ALBEDOM,GREENFRACM,LAIM,SHDMAX,SHDMIN 
 
    REAL (KIND=int_kind), dimension(MI1,MJ1) :: P2,ZZ
@@ -144,8 +145,8 @@ CONTAINS
       
       OPEN(99,FILE=FILENAME,FORM='unformatted',STATUS='OLD')
       READ(99) ((LU(I,J),I=1,MI1),J=1,MJ1)
-      print*,"landuse"
-      print*,((LU(I,J),I=1,MI1),J=1,MJ1)
+!      print*,"landuse"
+!      print*,((LU(I,J),I=1,MI1),J=1,MJ1)
       CLOSE(99)
 
       WRITE(FILENAME,'(A12,I3.3,A1,I3.3,A4)') &
@@ -371,7 +372,7 @@ CONTAINS
          lSMCREF     = -9.9999996E+35
          lSMCMAX     = -9.9999996E+35
          lNROOT      = -999999
-               
+         
       call LSM_DRV_ini(DT*NSFLUX,LU,SOIL,SLOPE, &
                        ALBEDOM,GREENFRACM,LAIM,SHDMAX,SHDMIN,P2,ZZ,&
                        lALBEDO,lEMISSI,lCMC,lT1,lST,lSM,lSL,lET,lSMAV)

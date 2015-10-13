@@ -647,8 +647,11 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
       
    real(kind=dbl_kind), intent(in):: dt1
    integer (kind=int_kind), dimension(mi1,mj1), intent(IN):: LU1,SOIL1,SLOPE1
+   real (kind=dbl_kind), dimension(mi1,mj1), intent(IN):: &
+      ALBEDOM1,GREENFRACM1,LAIM1,SHDMAX1,SHDMIN1
+
    real (kind=int_kind), dimension(mi1,mj1), intent(IN):: &
-      ALBEDOM1,GREENFRACM1,LAIM1,SHDMAX1,SHDMIN1,P2,ZZ1
+      P2,ZZ1
 
    real (kind=int_kind), dimension(mi1,mj1), intent(INOUT):: &
       ALBEDO,EMISSI,T1,CMC
@@ -672,6 +675,10 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
    
    dt = dt1
    LU = LU1
+!---hchun
+   print*,"LU in LSM_DRV_ini : "
+   print*,LU
+!--------
    SOIL = SOIL1 
    SLOPE = SLOPE1
 
