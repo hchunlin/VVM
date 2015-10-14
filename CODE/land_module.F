@@ -108,6 +108,13 @@ CONTAINS
 
       WT = dble(WTi)
       WQ = dble(WQi)
+!      write(99,*) "land_module.F : "
+!      write(99,*) "WT = "
+!      write(99,*) WTi(1,1)
+!      write(99,*) WT(1,1)
+!      write(99,*) "WQ = "
+!      write(99,*) WQi(1,1)
+!      write(99,*) WQ(1,1)
 
 
 !       WT = 0.

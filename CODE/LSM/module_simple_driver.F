@@ -549,6 +549,13 @@ DO I=1,MI1
              SOILM(I,J), Q1(I,J), SMAV(I,J,:), RDLAI2D, USEMONALB,     &
              SNOTIME1, RIBB, SMCWLT(I,J), SMCDRY(I,J), SMCREF(I,J),    &
              SMCMAX(I,J), NROOT(I,J))
+!      if(I.eq.1.and.J.eq.1) then
+!      write(99,*) "module_simple_driver.F : "
+!      write(99,*) "WT = "
+!      write(99,*) SHEAT(1,1)
+!      write(99,*) "WQ = "
+!      write(99,*) ETAKIN(1,1)
+!      endif
 
 !     if (I .eq. 10 .and. J .eq. 10) &
 !     PRINT*, '===', CH(I,J),      &
@@ -675,10 +682,6 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
    
    dt = dt1
    LU = LU1
-!---hchun
-   print*,"LU in LSM_DRV_ini : "
-   print*,LU
-!--------
    SOIL = SOIL1 
    SLOPE = SLOPE1
 

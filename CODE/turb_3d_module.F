@@ -878,6 +878,11 @@ CONTAINS
 
   105 CONTINUE
       call land_interface(T2,QG,swD,lwD,sprec(1:mi1,1:mj1),WT,WQ,VEN2D,SPEEDTP)
+!      write(99,*) "turb_3d_module.F : "
+!      write(99,*) "WT = "
+!      write(99,*) WT(1,1)
+!      write(99,*) "WQ = "
+!      write(99,*) WQ(1,1)
 
 #else
 !==========================================================
