@@ -379,8 +379,10 @@ CONTAINS
          lSMCREF     = -9.9999996E+35
          lSMCMAX     = -9.9999996E+35
          lNROOT      = -999999
-         
-      call LSM_DRV_ini(120.0,LU,SOIL,SLOPE, &
+      
+      DT = 20.0
+      NSFLUX = 6.0   
+      call LSM_DRV_ini(DT*NSFLUX,LU,SOIL,SLOPE, &
                        ALBEDOM,GREENFRACM,LAIM,SHDMAX,SHDMIN,P2,ZZ,&
                        lALBEDO,lEMISSI,lCMC,lT1,lST,lSM,lSL,lET,lSMAV)
 
