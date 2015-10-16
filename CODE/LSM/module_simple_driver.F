@@ -530,6 +530,7 @@ DO I=1,MI1
      if (.true.) then
 
 
+        if(LU(I,J).ne.16) then
         call sflx(ILOC, JLOC, FFROZP, ISURBAN(I,J), DT, ZLVL(I,J),     &
              NSOIL(I,J), SLDPTH, LOCAL, LLANDUSE, LSOIL, LWDN,         &
              SOLDN(I,J), SOLNET, SFCPRS(I,J), PRCP(I,J), SFCTMP(I,J),  &
@@ -549,6 +550,11 @@ DO I=1,MI1
              SOILM(I,J), Q1(I,J), SMAV(I,J,:), RDLAI2D, USEMONALB,     &
              SNOTIME1, RIBB, SMCWLT(I,J), SMCDRY(I,J), SMCREF(I,J),    &
              SMCMAX(I,J), NROOT(I,J))
+        else
+             ETAKIN(I,J)=0.0
+             SHEAT(I,J) = 0.0
+             CH(I,J) = 0.0
+        endif
 !      if(I.eq.1.and.J.eq.1) then
 !      write(99,*) "module_simple_driver.F : "
 !      write(99,*) "WT = "
