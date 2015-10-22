@@ -960,8 +960,12 @@ CONTAINS
       hxu1=INT(hxu(I,J))
       hxv1=INT(hxv(I,J))
 
-      WQV(I,J) = WQ(I,J)*RHOZ(hx1)
-      WTH(I,J) = WT(I,J)*RHOZ(hx1)/(CP*PIBAR(hx1))
+!---1021hchun
+!      WQV(I,J) = WQ(I,J)*RHOZ(hx1)
+!      WTH(I,J) = WT(I,J)*RHOZ(hx1)/(CP*PIBAR(hx1))
+      WQV(I,J) = WQ(I,J)
+      WTH(I,J) = WT(I,J)/(1004.5*PIBAR(hx1))
+!------------
 !      WQV(I,J)=0.
 !      WTH(I,J)=0. !turn on momentum drag, not surface fluxes
 

@@ -306,7 +306,9 @@ CONTAINS
          ZZ(I,J)          = DZ/FNZ(hxp)
          P2(I,J)          = PBAR(hxp)
 !        TG1              = thbar(hxp-1)*pibar(hxp-1)
-         lT1(I,J)         = thbar(hx(I,J))*pibar(hx(I,J))
+!         lT1(I,J)         = thbar(hx(I,J))*pibar(hx(I,J))
+!----hchun1022
+         lT1(I,J)         = thbar(hxp-1)*pibar(hxp-1)
          lST(I,J,1)       = 297.0995
          lST(I,J,2)       = 298.0445
          lST(I,J,3)       = 297.8954
@@ -380,7 +382,7 @@ CONTAINS
          lSMCMAX     = -9.9999996E+35
          lNROOT      = -999999
       
-      call LSM_DRV_ini(dble(120),LU,SOIL,SLOPE, &
+      call LSM_DRV_ini(DT*NSFLUX,LU,SOIL,SLOPE, &
                        ALBEDOM,GREENFRACM,LAIM,SHDMAX,SHDMIN,P2,ZZ,&
                        lALBEDO,lEMISSI,lCMC,lT1,lST,lSM,lSL,lET,lSMAV)
 

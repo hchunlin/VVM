@@ -553,7 +553,47 @@ DO I=1,MI1
         else
              ETAKIN(I,J)=0.0
              SHEAT(I,J) = 0.0
+             EMISSI(I,J) = 0.0
+             ALBEDO(I,J) = 0.0
+             CMC(I,J) = 0.0
+             CM(I,J) = 0.0
              CH(I,J) = 0.0
+             T1(I,J) = 0.0
+             Q1(I,J) = 0.0
+             STC(I,J,:) = 0.0
+             SMC(I,J,:) = 0.0
+             SH2O(I,J,:) = 0.0
+             FDOWN(I,J) = 0.0
+             EC(I,J) = 0.0
+             EDIR(I,J) = 0.0
+             ET(I,J,:) = 0.0
+             ETT(I,J) = 0.0
+             ESNOW(I,J) = 0.0
+             DRIP(I,J) = 0.0
+             DEW(I,J) = 0.0
+             BETA(I,J) = 0.0
+             ETP(I,J) = 0.0
+             SSOIL(I,J) = 0.0
+             FLX1(I,J) = 0.0
+             FLX2(I,J) = 0.0
+             FLX3(I,J) = 0.0
+             RUNOFF1(I,J) = 0.0
+             RUNOFF2(I,J) = 0.0
+             RUNOFF3(I,J) = 0.0
+             RC(I,J) = 0.0
+             PC(I,J) = 0.0
+             RSMIN(I,J) = 0.0
+             RCS(I,J) = 0.0
+             RCT(I,J) = 0.0
+             RCQ(I,J) = 0.0
+             RCSOIL(I,J) = 0.0
+             SOILW(I,J) = 0.0
+             SOILM(I,J) = 0.0
+             SMAV(I,J,:) = 0.0
+             SMCWLT(I,J) = 0.0
+             SMCDRY(I,J) = 0.0
+             SMCREF(I,J) = 0.0
+             SMCMAX(I,J) = 0.0
         endif
 !      if(I.eq.1.and.J.eq.1) then
 !      write(99,*) "module_simple_driver.F : "
