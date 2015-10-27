@@ -5,6 +5,7 @@ USE kinds
 USE parmsld
 USE constld
 USE domain_decomposition
+USE rrtm_vars, only: sstxy,albdo
 !===hchun=================================
 USE module_simple_driver, only:LSM_DRV, LSM_DRV_ini
 !=========================================
@@ -108,13 +109,9 @@ CONTAINS
 
       WT = dble(WTi)
       WQ = dble(WQi)
-!      write(99,*) "land_module.F : "
-!      write(99,*) "WT = "
-!      write(99,*) WTi(1,1)
-!      write(99,*) WT(1,1)
-!      write(99,*) "WQ = "
-!      write(99,*) WQi(1,1)
-!      write(99,*) WQ(1,1)
+
+      albdo = lALBEDO
+      sstxy = lT1
 
 
 !       WT = 0.
@@ -306,9 +303,7 @@ CONTAINS
          ZZ(I,J)          = DZ/FNZ(hxp)
          P2(I,J)          = PBAR(hxp)
 !        TG1              = thbar(hxp-1)*pibar(hxp-1)
-!         lT1(I,J)         = thbar(hx(I,J))*pibar(hx(I,J))
-!----hchun1022
-         lT1(I,J)         = thbar(hxp-1)*pibar(hxp-1)
+         lT1(I,J)         = thbar(hx(I,J))*pibar(hx(I,J))
          lST(I,J,1)       = 297.0995
          lST(I,J,2)       = 298.0445
          lST(I,J,3)       = 297.8954
@@ -385,6 +380,9 @@ CONTAINS
       call LSM_DRV_ini(DT*NSFLUX,LU,SOIL,SLOPE, &
                        ALBEDOM,GREENFRACM,LAIM,SHDMAX,SHDMIN,P2,ZZ,&
                        lALBEDO,lEMISSI,lCMC,lT1,lST,lSM,lSL,lET,lSMAV)
+
+      albdo = lALBEDO
+      sstxy = lT1
 
 
 #endif

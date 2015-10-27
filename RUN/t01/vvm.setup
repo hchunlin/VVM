@@ -5,7 +5,7 @@
 #--------------------------------------------------------------------- 
 
 set echo  # echoes the commands
-set expname = lTSTEP
+set expname = LSM
 
 # hardscrabble configuration
 set subdir = '../..'

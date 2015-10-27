@@ -856,8 +856,8 @@ CONTAINS
       SPEEDTP(I,J)=0.5*SQRT((U3DX(I-1,J,hxp)+U3DX(I,J,hxp))**2  &
                            +(U3DY(I,J-1,hxp)+U3DY(I,J,hxp))**2)
 !      if(hx1 .ge. 2) then
-      tg(i,j)=thbar(hx1)*pibar(hx1)   !specify the ground temp. at the corresponding level
-      gwet(i,j)=0.8
+!      tg(i,j)=thbar(hx1)*pibar(hx1)   !specify the ground temp. at the corresponding level
+!      gwet(i,j)=0.8
 !      endif
 
 !ccwu for sst gradient test
@@ -960,12 +960,8 @@ CONTAINS
       hxu1=INT(hxu(I,J))
       hxv1=INT(hxv(I,J))
 
-!---1021hchun
-!      WQV(I,J) = WQ(I,J)*RHOZ(hx1)
-!      WTH(I,J) = WT(I,J)*RHOZ(hx1)/(CP*PIBAR(hx1))
-      WQV(I,J) = WQ(I,J)
-      WTH(I,J) = WT(I,J)/(1004.5*PIBAR(hx1))
-!------------
+      WQV(I,J) = WQ(I,J)*RHOZ(hx1)
+      WTH(I,J) = WT(I,J)*RHOZ(hx1)/(CP*PIBAR(hx1))
 !      WQV(I,J)=0.
 !      WTH(I,J)=0. !turn on momentum drag, not surface fluxes
 
