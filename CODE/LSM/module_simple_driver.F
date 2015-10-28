@@ -530,7 +530,6 @@ DO I=1,MI1
      if (.true.) then
 
 
-        if(LU(I,J).ne.16) then
         call sflx(ILOC, JLOC, FFROZP, ISURBAN(I,J), DT, ZLVL(I,J),     &
              NSOIL(I,J), SLDPTH, LOCAL, LLANDUSE, LSOIL, LWDN,         &
              SOLDN(I,J), SOLNET, SFCPRS(I,J), PRCP(I,J), SFCTMP(I,J),  &
@@ -550,58 +549,6 @@ DO I=1,MI1
              SOILM(I,J), Q1(I,J), SMAV(I,J,:), RDLAI2D, USEMONALB,     &
              SNOTIME1, RIBB, SMCWLT(I,J), SMCDRY(I,J), SMCREF(I,J),    &
              SMCMAX(I,J), NROOT(I,J))
-        else
-             ETAKIN(I,J)=0.0
-             SHEAT(I,J) = 0.0
-             EMISSI(I,J) = 0.0
-             ALBEDO(I,J) = 0.0
-             CMC(I,J) = 0.0
-             CM(I,J) = 0.0
-             CH(I,J) = 0.0
-             T1(I,J) = 0.0
-             Q1(I,J) = 0.0
-             STC(I,J,:) = 0.0
-             SMC(I,J,:) = 0.0
-             SH2O(I,J,:) = 0.0
-             FDOWN(I,J) = 0.0
-             EC(I,J) = 0.0
-             EDIR(I,J) = 0.0
-             ET(I,J,:) = 0.0
-             ETT(I,J) = 0.0
-             ESNOW(I,J) = 0.0
-             DRIP(I,J) = 0.0
-             DEW(I,J) = 0.0
-             BETA(I,J) = 0.0
-             ETP(I,J) = 0.0
-             SSOIL(I,J) = 0.0
-             FLX1(I,J) = 0.0
-             FLX2(I,J) = 0.0
-             FLX3(I,J) = 0.0
-             RUNOFF1(I,J) = 0.0
-             RUNOFF2(I,J) = 0.0
-             RUNOFF3(I,J) = 0.0
-             RC(I,J) = 0.0
-             PC(I,J) = 0.0
-             RSMIN(I,J) = 0.0
-             RCS(I,J) = 0.0
-             RCT(I,J) = 0.0
-             RCQ(I,J) = 0.0
-             RCSOIL(I,J) = 0.0
-             SOILW(I,J) = 0.0
-             SOILM(I,J) = 0.0
-             SMAV(I,J,:) = 0.0
-             SMCWLT(I,J) = 0.0
-             SMCDRY(I,J) = 0.0
-             SMCREF(I,J) = 0.0
-             SMCMAX(I,J) = 0.0
-        endif
-!      if(I.eq.1.and.J.eq.1) then
-!      write(99,*) "module_simple_driver.F : "
-!      write(99,*) "WT = "
-!      write(99,*) SHEAT(1,1)
-!      write(99,*) "WQ = "
-!      write(99,*) ETAKIN(1,1)
-!      endif
 
 !     if (I .eq. 10 .and. J .eq. 10) &
 !     PRINT*, '===', CH(I,J),      &
@@ -732,7 +679,7 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
    SLOPE = SLOPE1
 
    ALBEDOM    = ALBEDOM1/100.
-   SHDFAC     = GREENFRACM1 
+   SHDFAC     = GREENFRACM1/100. 
    LAIM       = LAIM1
    SHDMAX     = SHDMAX1
    SHDMIN     = SHDMIN1
@@ -765,7 +712,7 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
 
   dt = real(noahlsm_timestep)
   nsoil = 4
-  shdfac                    = shdfac/100.0
+  shdfac                    = shdfac
   shdmax                    = shdmax1/100.0
   shdmin                    = shdmin1/100.0
   zlvl                      = zz1
