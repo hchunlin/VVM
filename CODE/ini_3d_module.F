@@ -312,8 +312,6 @@ CONTAINS
   220 CONTINUE 
       UG(1)   = UG(2)
       UG(NK3) = UG(NK2)
-      VG(1)   = VG(2)
-      VG(NK3) = VG(NK2)
       vG(:)   = 0.
 
 !     OCEAN POINTS
