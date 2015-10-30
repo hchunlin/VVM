@@ -506,8 +506,7 @@ CONTAINS
 #if defined (TOPOGRAPHY) 
 
 !      DATA L/75000./,H/4000./ !width and height of bell shaped mountain.
-!----hchun 
-!      IF (.false.) THEN
+      IF (.false.) THEN
       WRITE(FILENAME,'(A12,I3.3,A1,I3.3,A4)') &
       'RUNDATA/TOPO',ni_sbdm+1,'_',nj_sbdm+1,'.dat'
 
@@ -522,10 +521,9 @@ CONTAINS
       maxtopo=INT(H) + 1
 
       call bound_arb(1,HX)
-!      ENDIF
+      ENDIF
 !le for debug 
-!      HX = 1
-!-------------
+      HX = 1
 
       DO I=1,MI1
       DO J=1,MJ1

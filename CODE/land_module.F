@@ -140,8 +140,7 @@ CONTAINS
    CHARACTER(50):: FILENAME
 
 ! surface pressure
-!-----hchun-----
-      IF (.true.) then
+      IF (.false.) then
       WRITE(FILENAME,'(A12,I3.3,A1,I3.3,A4)') &
       'RUNDATA/LULU',ni_sbdm+1,'_',nj_sbdm+1,'.dat'
 
@@ -214,14 +213,14 @@ CONTAINS
       CLOSE(99)
       ENDIF
 
-!      LU = 1
-!      SOIL = 1
-!      SLOPE = 1
-!      ALBEDOM = 15.
-!      GREENFRACM = 10.
-!      LAIM = 4.
-!      SHDMAX = 10.
-!      SHDMIN = 10.      
+      LU = 6
+      SOIL = 1
+      SLOPE = 1
+      ALBEDOM = 15.
+      GREENFRACM = 10.
+      LAIM = 4.
+      SHDMAX = 10.
+      SHDMIN = 10.      
 
 !      WRITE(FILENAME2,'(A12,I3.3,A1,I3.3,A4)') &
 !      'RUNDATA/SM1',ni_sbdm+1,'_',nj_sbdm+1,'.dat'
