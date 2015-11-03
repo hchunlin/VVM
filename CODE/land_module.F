@@ -213,7 +213,7 @@ CONTAINS
       CLOSE(99)
       ENDIF
 
-      LU = 6
+      LU = 1
       SOIL = 1
       SLOPE = 1
       ALBEDOM = 15.
