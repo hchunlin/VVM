@@ -1001,10 +1001,6 @@ CONTAINS
       STD_TM5(I,J,6)=STD_TM5(I,J,6)+PREC25(I,J)    *  dtfac
       STD_TM5(I,J,7)=STD_TM5(I,J,7)+OLR(I,J)       *  dtfac
  1226 CONTINUE
-!-----hchun-----
-      write(99,*) 'ITT = ',itt
-      write(99,*) WTH
-!---------------
 
 #if defined (DIFFUSION)
 #if defined (LSM)
@@ -1132,9 +1128,6 @@ CONTAINS
 !      TIME_C = TIME1 -0.5*dt / ( FAC * 60.)
       TIME_C = TIME1
 !      FAC = 1. / FLOAT ( isample )   ! Mars comment to test sprec
-!-----hchun-----
-      write(99,*) 'Do the average!!'
-!---------------
       std_rad = std_rad * fac
       std_tm5 = std_tm5 * fac
       out_tm9 = out_tm9 * fac

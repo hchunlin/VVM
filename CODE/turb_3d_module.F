@@ -877,9 +877,6 @@ CONTAINS
       lwD(I,J) = lwDown_3D(I,J,hxp)
 
   105 CONTINUE
-!-----hchun-----
-      write(99,*) 'call the LSM!!'
-!---------------
       call land_interface(T2,QG,swD,lwD,sprec(1:mi1,1:mj1),WT,WQ,VEN2D,SPEEDTP)
 
 #else

@@ -70,7 +70,7 @@
        qcl, &     ! cloud mixing ratio
        qci, &     ! ice mixing ratio
        sstxy, &   ! sea surface temperature
-       albdo, &   ! given albedo from land surface model
+       albdo, &   ! given albedo from land surface model.
        pres, &    ! model layer pressure (mb)
        presi, &   ! model interface pressure (mb)
 !       rho, &     ! density profile.  In this anelastic model, rho=rho(z).

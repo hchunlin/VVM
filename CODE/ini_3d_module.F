@@ -506,7 +506,7 @@ CONTAINS
 #if defined (TOPOGRAPHY) 
 
 !      DATA L/75000./,H/4000./ !width and height of bell shaped mountain.
-      IF (.false.) THEN
+      IF (.true.) THEN
       WRITE(FILENAME,'(A12,I3.3,A1,I3.3,A4)') &
       'RUNDATA/TOPO',ni_sbdm+1,'_',nj_sbdm+1,'.dat'
 

@@ -93,7 +93,7 @@ contains
     ! Journal of Geophysical Research, Vol 97, D7, pp7603-7612).
     
     logical,            intent( in) :: ocean
-    real, dimension(:), intent( in) :: albdo, & ! slice
+    real, dimension(:), intent( in) :: albdo, & ! slice albedo
                                        coszrs   ! Cosine of solar zenith angle
     real, dimension(:), intent(out) :: asdir, & ! Srf alb for direct rad   0.2-0.7 micro-ms
                                        aldir, & ! Srf alb for direct rad   0.7-5.0 micro-ms
@@ -101,7 +101,7 @@ contains
                                        aldif    ! Srf alb for diffuse rad  0.7-5.0 micro-ms
     real, parameter :: adif = 0.06
     !-----------------------------------------------------------------------
-    if(.false.) then
+    if (.false.) then
     if (ocean) then
       !
       !
