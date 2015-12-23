@@ -350,6 +350,8 @@ DO I=1,MI1
      ! FFROZP indicates the fraction of the total precipitation which is considered to be
      ! frozen.
      !
+! easy if water body skip LSM
+     IF (LU(I,J) .NE. 16) THEN
 
      if ( (PRCP(I,J) > 0) .and. (SFCTMP(I,J) < 273.15) ) then
         FFROZP = 1.0
@@ -526,6 +528,8 @@ DO I=1,MI1
      !    NROOT       -- Number of root layers ( count )
      !
 
+
+
 !     if ( ICE == 0 ) THEN
      if (.true.) then
 
@@ -555,7 +559,6 @@ DO I=1,MI1
 !             ETP(I,J)
 !      PRINT*, SNOMLT(I,J), SNCOVR(I,J), RUNOFF1(I,J), RUNOFF2(I,J),     &
 !             RUNOFF3(I,J), RC(I,J), PC(I,J), RCT(I,J), RCQ(I,J), Q1(I,J), RIBB,'==='
-
 
 
      ELSEIF ( ICE == -1 ) THEN
@@ -631,7 +634,7 @@ DO I=1,MI1
      ! Write the output data for this timestep.
      !
 
-
+     ENDIF
 ENDDO
 ENDDO
 
@@ -688,6 +691,10 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
 
   DO J=1,MJ1
   DO I=1,MI1
+
+  STinout_ini = ST(I,J,:)
+  SMinout_ini = SM(I,J,:)
+  SLinout_ini = SL(I,J,:)
   
   STinout_ini = ST(I,J,:)
   SMinout_ini = SM(I,J,:)
@@ -701,7 +708,6 @@ SUBROUTINE LSM_DRV_ini(dt1,LU1,SOIL1,SLOPE1,                                  &
        z0brd_monthly, lai_monthly, use_urban_module, isurban(I,J), sdmn1, sdmx1,  &
        usemonalb, rdlai2d, llanduse, &
        iz0tlnd, sfcdif_option,STinout_ini,SMinout_ini,SLinout_ini)
-
 
   ST(I,J,:) = STinout_ini
   SM(I,J,:) = SMinout_ini

@@ -502,6 +502,7 @@
 
         call albedo(ocean, albdo, real(solarZenithAngleCos(:)), &
              asdir(:), aldir(:), asdif(:), aldif(:))
+               
 
         call rrtmg_sw(nx, nzm+1, overlap,                     & 
              layerP, interfaceP, layerT, interfaceT, surfaceT, &

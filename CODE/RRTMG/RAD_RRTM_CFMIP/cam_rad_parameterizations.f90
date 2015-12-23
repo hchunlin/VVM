@@ -134,6 +134,7 @@ contains
         aldir = albdo
         aldif = albdo
     endif
+
   end subroutine albedo
 
 end module cam_rad_parameterizations

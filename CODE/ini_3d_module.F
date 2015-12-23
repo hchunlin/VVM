@@ -16,7 +16,7 @@ USE TURB_3D_module
 #endif
 #if defined (RADCODE)
 USE rrtm_vars, only: sstxy,albdo
-#endif
+#endif 
 USE petscsys
 
 IMPLICIT NONE
@@ -492,9 +492,8 @@ CONTAINS
       VTMN0 = VTMN
       
       IF(itt == 0) CALL UPDATE_TRACER_init
-
+  
       albdo = 0.30
-     
 #if defined (DIFFUSION)
       call turb_3d_ini
 #endif
