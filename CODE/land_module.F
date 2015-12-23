@@ -318,7 +318,7 @@ CONTAINS
 
 ! input the following varibles to lsm routine
 !   integer (kind=int_kind), dimension(mi1,mj1):: LU,SOIL,SLOPE
-   integer (kind=int_kind), dimension(mi1,mj1):: SOIL,SLOPE,LU
+   integer (kind=int_kind), dimension(mi1,mj1):: SOIL,SLOPE
    real  (KIND=dbl_kind), dimension(mi1,mj1):: & 
       ALBEDOM,GREENFRACM,LAIM,SHDMAX,SHDMIN 
 
