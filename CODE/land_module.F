@@ -131,8 +131,8 @@ CONTAINS
       ELSE
 ! OCEAN part      
 
-      CALL SFLUX_2D (0._dbl_kind,TB(I,J),THVSMD(I,J),SFCSPD(I,J), 
-     &               ZBT(I,J),ZROUGH(I,J),USTAR,VENTFC,MOLEN)
+      CALL SFLUX_2D (0._dbl_kind,TB(I,J),THVSMD(I,J),SFCSPD(I,J), &
+                     ZBT(I,J),ZROUGH(I,J),USTAR,VENTFC,MOLEN)
 
 
       WT(I,J) = VENTFC(2)*TD(I,J)
