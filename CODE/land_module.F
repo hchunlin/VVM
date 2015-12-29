@@ -36,6 +36,8 @@ PRIVATE
 
   INTEGER (KIND=int_kind), dimension(MI1,MJ1), PUBLIC::lNROOT,LU
 
+  REAL (KIND=dbl_kind),dimension(MI1,MJ1) :: TB,ZBT
+
 !public member functions
 PUBLIC ::      &
    land_interface,    &
@@ -129,8 +131,8 @@ CONTAINS
       ELSE
 ! OCEAN part      
 
-      CALL SFLUX_2D (0._dbl_kind,dble(lT1(I,J)),THVSMD(I,J),SFCSPD(I,J), &
-                     dble(ZL(I,J)),ZROUGH(I,J),USTAR,VENTFC,MOLEN)
+      CALL SFLUX_2D (0._dbl_kind,TB(I,J),THVSMD(I,J),SFCSPD(I,J), 
+     &               ZBT(I,J),ZROUGH(I,J),USTAR,VENTFC,MOLEN)
 
 
       WT(I,J) = VENTFC(2)*TD(I,J)
@@ -141,8 +143,8 @@ CONTAINS
 
   200 CONTINUE
 
-      albdo = lALBEDO
-      sstxy = lT1
+!      albdo = lALBEDO
+!      sstxy = lT1
 
 
 
@@ -483,6 +485,9 @@ CONTAINS
       DO 100 I = 1,MI1
       hxp=INT(hx(I,J))+1
 
+! INPUT for SFLX_2D
+         ZBT(I,J)         = DZ/FNT(hxp)
+         TB(I,J)          = THBAR(hxp)
           
          ZL(I,J)          = DZ/FNT(hxp)
          P2(I,J)          = PBAR(hxp)
@@ -568,8 +573,6 @@ CONTAINS
       albdo = lALBEDO
       sstxy = lT1
 
-!   albdo = .30!lALBEDO
-!   sstxy = SST!lT1
 
 #endif
 
