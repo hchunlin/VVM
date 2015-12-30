@@ -859,8 +859,8 @@ CONTAINS
       SPEEDTP(I,J)=0.5*SQRT((U3DX(I-1,J,hxp)+U3DX(I,J,hxp))**2  &
                            +(U3DY(I,J-1,hxp)+U3DY(I,J,hxp))**2)
 !      if(hx1 .ge. 2) then
-      tg(i,j)=thbar(hx1)*pibar(hx1)   !specify the ground temp. at the corresponding level
-      gwet(i,j)=0.8
+!      tg(i,j)=thbar(hx1)*pibar(hx1)   !specify the ground temp. at the corresponding level
+!      gwet(i,j)=0.8
 !      endif
 
 !ccwu for sst gradient test
